@@ -19,8 +19,8 @@ if ($#ARGV != 1 || $ARGV[0] eq "-h") {print "\n", "-"x60, "\n", $scriptname, "\n
 my $seqfile = $ARGV[0];
 open(SEQ, $seqfile);
 # Patern and size modified to reflect trimming in pipeline
-$patt = ".{11}GCA.{6}TGC.{12}";
-$size = 35;
+$patt = ".{12}GCA.{6}TGC.{12}";
+$size = 36;
 
 print "Forward sequence of recognition site: ", $patt, "\n";
 print "Reverse compliment sequence of recognition site: ", $rcpatt, "\n";
