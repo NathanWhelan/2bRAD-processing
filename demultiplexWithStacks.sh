@@ -8,10 +8,10 @@
 # This script will output your data into an output folder with the name of your sequence data with ".output" appended
 
 
-###TO run: demultiplexWithStacks.sh <sequenceFile.fastq.gz> <dummySequenceFile.gz> <barcodeFile.txt> <number of threads>
-##EXAMPLE: demultiplexWithStacks.sh L_compacta.fastq.gz L_compacta.dummy.fastq.gz L_compactaBarcodes.txt 30
+###TO run: demultiplexWithStacks.sh <sequenceFile.fastq.gz> <dummySequenceFile.gz> <barcodeFile.txt>
+##EXAMPLE: demultiplexWithStacks.sh L_compacta.fastq.gz L_compacta.dummy.fastq.gz L_compactaBarcodes.txt
 
 
 
 mkdir $1.output
-process_radtags -1 $1 -2 $2 -o $1.output -b $3 -c -r -t $4 -D --index_index --disable_rad_check
+process_radtags -1 $1 -2 $2 -o $1.output -b $3 -c -r -D --index_index --disable_rad_check
