@@ -1,4 +1,4 @@
-# A Tutorial on STACKS
+# A Tutorial on Processing and Assembling 2bRAD data with STACKS
  
 ## Before starting
  
