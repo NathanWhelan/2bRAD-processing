@@ -16,7 +16,7 @@ Assembly of RAD-seq data in Stacks requires multiple steps. Some are optional an
 This tutorial assumes a basic knowledge of working at the command line. If you need to submit jobs to a queue system, then you should be familiar with how to do that on your cluster. STACKS should be installed on the computer/cluster you will be using. This tutorial also assumes you have read the STACKS manual. So, you should know about the different STACKS programs/modules/scripts. You should also understand file formats for standard files like the popmap.
 
 ## Explanation of dependencies
-Scripts used by this pipeline, specifically 2bRAD_stacks_prep.sh are in the helper-scripts folder.
+Scripts used by this pipeline, specifically 2bRAD_stacks_prep.sh are in the helper-scripts folder. These should be in your PATH.
 
 You must install STACKS (https://catchenlab.life.illinois.edu/stacks/) and have executables in your PATH.
 
