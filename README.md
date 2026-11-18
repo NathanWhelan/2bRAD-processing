@@ -44,7 +44,8 @@ cp reads.R1.fastq.gz reads.dummy.fastq.gz
 mkdir demultiplexed-reads
 process_radtags -1 reads.R1.fastq.gz -2 reads.dummy.fastq.gz -b barcodes.txt -o ./demultiplexed-reads -c -q -r --index-index --retain-header --disable-rad-check --threads 20
 ```
- 
+   See STACKS manual format of barcodes file.
+   You may want to submit this to a queue, depending on your machine. These commands can be dropped into a queue submission script.
    You will want to adjust output directories, file names, and `--threads` as appropriate for your data and machine.
  
 ### 2) Quality filtering
@@ -57,14 +58,15 @@ process_radtags -1 reads.R1.fastq.gz -2 reads.dummy.fastq.gz -b barcodes.txt -o 
 ### 3) Initial assembly to identify best-possible -m, -M and -n parameters (REQUIRED)
  
 1. For moderately deep sequenced samples, I recommend `-m 3`, which means a minimum read depth of 3X.
-2. Select a subsample of specimens. These should be individuals with an average number of reads and 2-3 individuals per population/site. The number of reads per individual can be found in the `process_radtags` log.
+2. Select a subsample of specimens. These should be individuals with an average number of reads and 2-3 individuals per population/site. The number of reads per individual can be found in the `process_radtags` log. The only samples processed will be those in the popmap. See STACKS manual for popmap format.
 3. Run `denovo_map.pl` with a range of `-M` and `-n` values. The script `parameter-test_2bRAD.sh` is a SLURM batch script for doing this.
 4. If you ran `denovo_map.pl` with `-X populations:"-R 0.80"` then you do not need to do the next step.
    1. Otherwise, run `populations` on each assembly with `-R 0.80` as the filter.
 5. Run `paris_optimize.py` to determine best assembly parameters.
    1. Alternatively, you can do this by hand: examine `populations.log.distribs` for each metric and determine best assembly parameters following Paris et al. (2017). This is somewhat subjective.
 ### 4) Full assembly using chosen -m, -M, and -n parameters from above
- 
+1. Run denovo_map.pl using the chosen parameters.
+   
 ### 5) Run populations with -R 0.80
  
 1. Choose minimum minor allele frequency and missing data cutoffs.
