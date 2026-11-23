@@ -62,7 +62,7 @@ process_radtags -1 reads.R1.fastq.gz -2 reads.dummy.fastq.gz -b barcodes.txt -o 
 3. Run `denovo_map.pl` with a range of `-M` and `-n` values. The script `parameter-test_2bRAD.sh` is a SLURM batch script for doing this.
 4. If you ran `denovo_map.pl` with `-X populations:"-R 0.80"` then you do not need to do the next step.
    1. Otherwise, run `populations` on each assembly with `-R 0.80` as the filter.
-5. Run `paris_optimize.py` to determine best assembly parameters.
+5. Run `paris_optimize.py` to determine best assembly parameters (see more here: https://github.com/NathanWhelan/stacks_parameter_assessment).
    1. Alternatively, you can do this by hand: examine `populations.log.distribs` for each metric and determine best assembly parameters following Paris et al. (2017). This is somewhat subjective.
 ### 4) Full assembly using chosen -m, -M, and -n parameters from above
 1. Run denovo_map.pl using the chosen parameters.
